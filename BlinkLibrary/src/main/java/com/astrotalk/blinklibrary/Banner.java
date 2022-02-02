@@ -1,38 +1,30 @@
 package com.astrotalk.blinklibrary;
 
 import android.content.Context;
-import android.os.Handler;
 import android.util.Log;
-import android.view.View;
 
-import androidx.viewpager.widget.ViewPager;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 public class Banner {
 
-    static Response response;
+    Response response;
     Context context;
+    RequestQueue queue;
 
     public Banner(Response response, Context context) {
         this.response = response;
         this.context = context;
+        queue = Volley.newRequestQueue(context);
     }
 
-    static RequestQueue queue;
-
-    public static void getBanner() {
+    public void getBanner() {
 
         String url = "";
         try {
@@ -65,3 +57,4 @@ public class Banner {
         void onResponse(JSONObject jsonObject);
     }
 }
+
