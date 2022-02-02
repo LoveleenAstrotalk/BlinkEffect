@@ -22,7 +22,7 @@ import java.net.URLEncoder;
 
 public class Banner {
 
-    Response response;
+    static Response response;
     Context context;
 
     public Banner(Response response, Context context) {
@@ -30,9 +30,9 @@ public class Banner {
         this.context = context;
     }
 
-    RequestQueue queue;
+    static RequestQueue queue;
 
-    private void getBanner() {
+    public static void getBanner() {
 
         String url = "";
         try {
